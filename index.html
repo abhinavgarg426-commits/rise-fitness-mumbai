@@ -3,170 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rise Fitness | Vikas Rana — Mumbai's No-Nonsense Trainer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Rise Fitness | Vikas Rana — Andheri West, Mumbai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; }
+        :root { --yellow: #f5c400; --red: #e63946; }
 
-        /* Nav */
-        nav { position: fixed; top: 0; width: 100%; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; transition: 0.3s; }
-        nav.scrolled { background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); padding: 0.8rem 5%; }
-        .logo { font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 3px; color: #f7b500; }
-        .logo span { color: #fff; }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: #f7b500; }
-        .nav-cta { background: #f7b500; color: #000 !important; padding: 0.6rem 1.5rem; font-weight: 700; }
-        .nav-cta:hover { background: #e0a600; }
+        nav { position: fixed; top: 0; width: 100%; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; transition: 0.4s; }
+        nav.scrolled { background: rgba(10,10,10,0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.5); padding: 0.8rem 5%; }
+        .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 3px; color: #fff; }
+        .logo span { color: var(--yellow); }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--yellow); }
+        .nav-cta { background: var(--yellow); color: #0a0a0a; padding: 0.7rem 1.5rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; transition: 0.3s; }
+        .nav-cta:hover { background: #ddb000; }
 
-        /* Hero */
-        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%); z-index: 1; }
-        .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%); z-index: 0; display: flex; align-items: center; justify-content: center; }
-        .hero-bg i { font-size: 20rem; color: rgba(247,181,0,0.05); }
-        .hero-content { position: relative; z-index: 2; padding: 0 8%; max-width: 700px; }
-        .hero-label { display: inline-block; background: rgba(247,181,0,0.15); color: #f7b500; padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2rem; font-weight: 600; }
-        .hero h1 { font-size: 4.5rem; font-weight: 700; line-height: 0.95; margin-bottom: 1.5rem; letter-spacing: -1px; }
-        .hero h1 .highlight { color: #f7b500; }
-        .hero p { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; }
-        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn-yellow { background: #f7b500; color: #000; padding: 1rem 2.5rem; text-decoration: none; font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; display: inline-block; }
-        .btn-yellow:hover { background: #e0a600; transform: translateY(-2px); }
-        .btn-outline-white { background: transparent; color: #fff; padding: 1rem 2.5rem; text-decoration: none; font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); transition: 0.3s; display: inline-block; }
-        .btn-outline-white:hover { border-color: #f7b500; color: #f7b500; }
-        .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; }
-        .hero-stat .num { font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 700; color: #f7b500; line-height: 1; }
-        .hero-stat .label { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; margin-top: 0.3rem; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 5% 4rem; position: relative; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(245,196,0,0.06) 0%, transparent 65%); pointer-events: none; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; border: 1px solid rgba(245,196,0,0.3); padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); width: fit-content; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 5.5rem; line-height: 0.95; margin-bottom: 1.5rem; }
+        .hero h1 .highlight { color: var(--yellow); }
+        .hero h1 .outline-text { -webkit-text-stroke: 2px #fff; color: transparent; }
+        .hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.5); max-width: 480px; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
+        .hero-btns { display: flex; gap: 1rem; margin-bottom: 3rem; }
+        .btn-yellow { background: var(--yellow); color: #0a0a0a; padding: 1rem 2.5rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; transition: 0.3s; display: inline-block; }
+        .btn-yellow:hover { background: #ddb000; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #fff; padding: 1rem 2.5rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; display: inline-block; }
+        .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+        .hero-stats { display: flex; gap: 3rem; }
+        .hero-stat .num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--yellow); }
+        .hero-stat .label { font-size: 0.7rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1px; }
+        .hero-img { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 35%; display: flex; align-items: center; justify-content: center; }
+        .hero-img .placeholder { width: 100%; aspect-ratio: 1; background: rgba(245,196,0,0.05); border: 1px solid rgba(245,196,0,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .hero-img .placeholder i { font-size: 6rem; color: rgba(245,196,0,0.15); }
 
-        /* Marquee */
-        .marquee { background: #f7b500; padding: 0.8rem 0; overflow: hidden; }
-        .marquee-content { display: inline-block; animation: marquee 12s linear infinite; white-space: nowrap; }
-        .marquee-content span { color: #000; font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin: 0 2rem; font-weight: 600; }
-        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        .ticker { background: var(--yellow); padding: 0.6rem 0; overflow: hidden; }
+        .ticker-content { display: inline-block; animation: ticker 20s linear infinite; white-space: nowrap; }
+        .ticker-content span { color: #0a0a0a; font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 3px; margin: 0 2rem; }
+        @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-        /* Programs */
+        .intro { padding: 6rem 5%; display: flex; gap: 4rem; align-items: center; }
+        .intro-right { flex: 1; }
+        .intro-right .tag { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+        .intro-right h2 { font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1; }
+        .intro-right p { color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+        .intro-right .quote { border-left: 3px solid var(--yellow); padding-left: 1.5rem; font-size: 1.1rem; color: rgba(255,255,255,0.75); font-style: italic; margin: 2rem 0; }
+        .intro-left { flex: 0.8; }
+        .intro-left .avatar-box { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #1a1a1a, #252510); border: 1px solid rgba(245,196,0,0.2); display: flex; align-items: center; justify-content: center; position: relative; }
+        .intro-left .avatar-box i { font-size: 6rem; color: rgba(245,196,0,0.15); }
+        .intro-left .avatar-box .badge { position: absolute; bottom: -1rem; right: -1rem; background: var(--yellow); color: #0a0a0a; padding: 1rem 1.5rem; text-align: center; }
+        .intro-left .avatar-box .badge .year { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; display: block; }
+        .intro-left .avatar-box .badge span { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; }
+
         .programs { padding: 6rem 5%; }
-        .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-label { color: #f7b500; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
-        .section-title { font-size: 2.8rem; font-weight: 700; margin: 0.5rem 0; }
-        .section-sub { color: rgba(255,255,255,0.4); font-size: 0.9rem; }
-        .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-        .program-card { background: #111; border: 1px solid #222; padding: 2rem; transition: 0.3s; cursor: pointer; position: relative; overflow: hidden; }
-        .program-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: #f7b500; transform: scaleX(0); transform-origin: left; transition: 0.3s; }
+        .section-label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.5rem; text-align: center; }
+        .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; text-align: center; margin: 0.5rem 0; }
+        .section-sub { color: rgba(255,255,255,0.35); text-align: center; margin-bottom: 3rem; }
+        .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .program-card { border: 1px solid rgba(255,255,255,0.08); padding: 2rem; transition: 0.3s; position: relative; overflow: hidden; }
+        .program-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--yellow); transform: scaleX(0); transition: 0.3s; transform-origin: left; }
         .program-card:hover::before { transform: scaleX(1); }
-        .program-card:hover { border-color: #333; transform: translateY(-5px); }
-        .program-card .icon-wrap { width: 60px; height: 60px; background: rgba(247,181,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-        .program-card .icon-wrap i { color: #f7b500; font-size: 1.5rem; }
-        .program-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .program-card p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem; }
-        .program-meta { display: flex; justify-content: space-between; align-items: center; }
-        .program-meta .price { color: #f7b500; font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; }
-        .program-meta .duration { font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 1px; text-transform: uppercase; }
-        .program-card .arrow { position: absolute; bottom: 2rem; right: 2rem; color: rgba(255,255,255,0.2); transition: 0.3s; }
-        .program-card:hover .arrow { color: #f7b500; transform: translateX(5px); }
+        .program-card:hover { border-color: rgba(245,196,0,0.3); background: rgba(245,196,0,0.02); }
+        .program-card .tag { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; }
+        .program-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; margin-bottom: 0.8rem; }
+        .program-card p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 1.5rem; }
+        .program-card ul { list-style: none; margin-bottom: 1.5rem; }
+        .program-card ul li { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+        .program-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--yellow); }
+        .program-card .price { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--yellow); }
 
-        /* Transformations */
-        .transformations { padding: 6rem 5%; background: #111; }
-        .trans-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; }
-        .trans-card { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.5rem; border: 1px solid #222; }
-        .trans-avatar { width: 70px; height: 70px; background: #1a1a1a; border: 2px solid #f7b500; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .trans-avatar i { color: #f7b500; font-size: 1.5rem; }
-        .trans-content h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
-        .trans-content .result { color: #f7b500; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .trans-content p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.6; font-style: italic; }
+        .results { padding: 6rem 5%; background: #0f0f0f; }
+        .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1000px; margin: 0 auto; }
+        .result-card { text-align: center; padding: 2rem 1rem; border: 1px solid rgba(255,255,255,0.05); }
+        .result-card .num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--yellow); }
+        .result-card .label { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* About */
-        .about { padding: 6rem 5%; display: flex; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
-        .about-img { flex: 0.8; position: relative; }
-        .about-img .main { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #1a1a1a, #111); display: flex; align-items: center; justify-content: center; }
-        .about-img .main i { font-size: 8rem; color: rgba(247,181,0,0.3); }
-        .about-img .experience-badge { position: absolute; bottom: 2rem; right: -2rem; background: #f7b500; color: #000; padding: 1.5rem; text-align: center; }
-        .about-img .experience-badge .num { font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 700; display: block; line-height: 1; }
-        .about-img .experience-badge span { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-        .about-content { flex: 1.2; }
-        .about-content .tag { color: #f7b500; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
-        .about-content h2 { font-size: 2.5rem; font-weight: 700; margin: 0.5rem 0 1.5rem; line-height: 1.1; }
-        .about-content p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
-        .badges { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
-        .badges span { background: rgba(247,181,0,0.1); color: #f7b500; padding: 0.4rem 1rem; font-size: 0.75rem; letter-spacing: 1px; font-weight: 600; text-transform: uppercase; }
+        .testimonials { padding: 6rem 5%; }
+        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 850px; margin: 0 auto; }
+        .testi-card { border: 1px solid rgba(255,255,255,0.07); padding: 2rem; }
+        .testi-card .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+        .testi-card .quote { color: var(--yellow); font-size: 1.5rem; }
+        .testi-card .stars { color: var(--yellow); font-size: 0.75rem; letter-spacing: 2px; }
+        .testi-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
+        .testi-card .person { display: flex; align-items: center; gap: 0.8rem; }
+        .testi-card .person-avatar { width: 42px; height: 42px; background: rgba(245,196,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .testi-card .person-avatar i { color: var(--yellow); font-size: 1rem; }
+        .testi-card .person h4 { font-size: 0.85rem; font-weight: 500; }
+        .testi-card .person span { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
 
-        /* Pricing */
         .pricing { padding: 6rem 5%; }
         .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
-        .price-card { background: #111; border: 2px solid #222; padding: 2.5rem; text-align: center; transition: 0.3s; }
-        .price-card:hover, .price-card.featured { border-color: #f7b500; }
-        .price-card.featured { position: relative; background: #1a1a1a; }
-        .price-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #f7b500; color: #000; padding: 0.3rem 1rem; font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; }
-        .price-card h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 1.5rem; color: rgba(255,255,255,0.5); text-transform: uppercase; }
-        .price-card .amount { font-family: 'Oswald', sans-serif; font-size: 4rem; font-weight: 700; color: #f7b500; line-height: 1; }
-        .price-card .per { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
-        .price-card ul { list-style: none; text-align: left; margin: 2rem 0; }
-        .price-card li { padding: 0.6rem 0; border-bottom: 1px solid #1a1a1a; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
-        .price-card li i { color: #f7b500; margin-right: 0.5rem; }
-        .price-card a { display: block; padding: 1rem; background: #f7b500; color: #000; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
-        .price-card a:hover { background: #e0a600; }
-        .price-card:not(.featured) a { background: transparent; border: 1px solid #333; color: #f7b500; }
-        .price-card:not(.featured) a:hover { border-color: #f7b500; }
+        .price-card { border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem 2rem; text-align: center; transition: 0.3s; }
+        .price-card.featured { border-color: var(--yellow); background: rgba(245,196,0,0.03); position: relative; }
+        .price-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--yellow); color: #0a0a0a; padding: 0.3rem 1rem; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        .price-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; margin-bottom: 0.3rem; }
+        .price-card .duration { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; }
+        .price-card .amount { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--yellow); }
+        .price-card .amount small { font-size: 1rem; color: rgba(255,255,255,0.3); }
+        .price-card .note { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; }
+        .price-card ul { list-style: none; text-align: left; margin-bottom: 2rem; }
+        .price-card ul li { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; }
+        .price-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--yellow); font-size: 0.7rem; }
+        .price-card .btn { display: block; padding: 1rem; background: rgba(255,255,255,0.07); color: #fff; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .price-card.featured .btn { background: var(--yellow); color: #0a0a0a; font-weight: 700; }
+        .price-card .btn:hover { background: rgba(255,255,255,0.12); }
+        .price-card.featured .btn:hover { background: #ddb000; }
 
-        /* CTA */
-        .cta-section { padding: 6rem 5%; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), #111; text-align: center; }
-        .cta-section h2 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
-        .cta-section h2 span { color: #f7b500; }
-        .cta-section p { color: rgba(255,255,255,0.6); max-width: 450px; margin: 0 auto 2rem; }
+        .cta { padding: 6rem 5%; text-align: center; background: var(--yellow); }
+        .cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: #0a0a0a; margin-bottom: 1rem; }
+        .cta p { color: rgba(0,0,0,0.55); max-width: 420px; margin: 0 auto 2.5rem; font-size: 0.95rem; }
+        .cta button { background: #0a0a0a; color: #fff; padding: 1.1rem 3rem; border: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; font-weight: 700; transition: 0.3s; }
+        .cta button:hover { background: #1a1a1a; transform: translateY(-2px); }
 
-        /* Contact */
-        .contact-section { padding: 6rem 5%; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; }
-        .contact-info h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
-        .contact-info > p { color: rgba(255,255,255,0.5); margin-bottom: 2rem; font-size: 0.9rem; }
-        .contact-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-        .contact-item i { width: 45px; height: 45px; background: rgba(247,181,0,0.1); color: #f7b500; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .contact-item strong { display: block; margin-bottom: 0.2rem; }
-        .contact-item span { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
-        .contact-form { background: #111; padding: 2rem; }
-        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 0.9rem; background: #0a0a0a; border: 1px solid #222; color: #fff; font-family: 'Inter', sans-serif; margin-bottom: 1rem; outline: none; transition: 0.3s; }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: #f7b500; }
-        .contact-form textarea { height: 100px; resize: none; }
-        .contact-form button { width: 100%; padding: 1rem; background: #f7b500; color: #000; border: none; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        .contact-form button:hover { background: #e0a600; }
+        footer { background: #060606; color: #fff; padding: 4rem 5% 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 3px; margin-bottom: 1rem; }
+        .footer-brand .logo span { color: var(--yellow); }
+        .footer-brand p { color: #444; font-size: 0.85rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .footer-brand .social a { color: #444; margin-right: 1rem; text-decoration: none; transition: 0.3s; }
+        .footer-brand .social a:hover { color: var(--yellow); }
+        .footer-col h4 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+        .footer-col a { display: block; color: #444; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; transition: 0.3s; }
+        .footer-col a:hover { color: var(--yellow); }
+        .footer-bottom { border-top: 1px solid #111; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.72rem; color: #333; }
 
-        /* Footer */
-        footer { background: #000; padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; }
-        footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
-        .footer-social { display: flex; gap: 1.5rem; }
-        .footer-social a { color: rgba(255,255,255,0.3); font-size: 1.1rem; transition: 0.3s; }
-        .footer-social a:hover { color: #f7b500; }
-
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-left { opacity: 0; transform: translateX(-40px); transition: 0.8s; }
-        .reveal-left.active { opacity: 1; transform: translateX(0); }
-        .stagger > * { opacity: 0; transform: translateY(25px); transition: 0.5s; }
+        .stagger > * { opacity: 0; transform: translateY(20px); transition: 0.5s; }
         .stagger.active > *:nth-child(1) { opacity:1;transform:translateY(0);transition-delay:0s; }
         .stagger.active > *:nth-child(2) { opacity:1;transform:translateY(0);transition-delay:0.15s; }
         .stagger.active > *:nth-child(3) { opacity:1;transform:translateY(0);transition-delay:0.3s; }
+        .stagger.active > *:nth-child(4) { opacity:1;transform:translateY(0);transition-delay:0.45s; }
+        .stagger.active > *:nth-child(5) { opacity:1;transform:translateY(0);transition-delay:0.6s; }
+        .stagger.active > *:nth-child(6) { opacity:1;transform:translateY(0);transition-delay:0.75s; }
 
-        /* Counter animation */
-        @keyframes countUp { from{opacity:0;transform:translateY(15px);} to{opacity:1;transform:translateY(0);} }
-
-        /* Mobile */
         @media (max-width: 768px) {
             nav ul { display: none; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero-stats { gap: 1.5rem; }
-            .hero-stat .num { font-size: 2rem; }
-            .hero-stats { margin-top: 2rem; }
+            .hero { padding: 6rem 5% 3rem; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero-img { display: none; }
+            .intro { flex-direction: column; }
+            .intro h2 { font-size: 2.5rem; }
             .program-grid { grid-template-columns: 1fr; }
-            .about { flex-direction: column; }
-            .about-img .experience-badge { right: 1rem; bottom: 1rem; }
-            .trans-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr 1fr; }
+            .testi-grid { grid-template-columns: 1fr; }
             .pricing-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -175,277 +162,275 @@
         <div class="logo">RISE<span>FITNESS</span></div>
         <ul>
             <li><a href="#programs">Programs</a></li>
-            <li><a href="#transformations">Results</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#pricing">Pricing</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">Start Now</a>
+        <a href="#pricing" class="nav-cta">Start Training</a>
     </nav>
 
     <section class="hero">
-        <div class="hero-bg"><i class="fas fa-dumbbell"></i></div>
-        <div class="hero-content">
-            <div class="hero-label">Mumbai's Most Results-Driven Trainer</div>
-            <h1>Transform Your<br><span class="highlight">Body in 90 Days</span><br>No BS.</h1>
-            <p>I'm Vikas Rana. I've been where you are — 120kg, tired, unhealthy, unhappy with what I saw in the mirror. Then I figured out how the body actually works. 8 years later, I've helped 500+ people do the same. No crash diets. No gimmicks. Just science, consistency, and accountability.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn-yellow">Start Your Transformation</a>
-                <a href="#programs" class="btn-outline-white">View Programs</a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat"><div class="num">500+</div><div class="label">Clients Transformed</div></div>
-                <div class="hero-stat"><div class="num">8+</div><div class="label">Years Experience</div></div>
-                <div class="hero-stat"><div class="num">98%</div><div class="label">Success Rate</div></div>
-            </div>
+        <div class="hero-badge"><i class="fas fa-fire"></i> Andheri West, Mumbai — Since 2016</div>
+        <h1>TRANSFORM YOUR<br><span class="highlight">BODY IN</span><br><span class="outline-text">90 DAYS</span></h1>
+        <p class="hero-sub">I'm Vikas Rana. I was 120kg at 24, eating Maggi for dinner 4 nights a week, and telling myself I'd "start on Monday." That Monday never came. I figured out how the body actually works — not the influencer version, the real one — and 8 years later I've helped 500+ people do what I did. No pre-workout supplements sold. No meal plans that ignore your social life. Just structured training, honest accountability, and science.</p>
+        <div class="hero-btns">
+            <a href="#pricing" class="btn-yellow">Start Your Transformation</a>
+            <a href="#programs" class="btn-outline">See Programs</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat"><div class="num">500+</div><div class="label">Clients Transformed</div></div>
+            <div class="hero-stat"><div class="num">8</div><div class="label">Years Experience</div></div>
+            <div class="hero-stat"><div class="num">4.9</div><div class="label">Google Rating</div></div>
+        </div>
+        <div class="hero-img">
+            <div class="placeholder"><i class="fas fa-dumbbell"></i></div>
         </div>
     </section>
 
-    <div class="marquee">
-        <div class="marquee-content">
-            <span>🔥 90-Day Transformation</span>
-            <span>💪 Strength Building</span>
-            <span>⚖️ Fat Loss Program</span>
-            <span>🥗 Nutrition Coaching</span>
-            <span>🏋️ Online & Offline</span>
-            <span>🔥 90-Day Transformation</span>
-            <span>💪 Strength Building</span>
-            <span>⚖️ Fat Loss Program</span>
-            <span>🥗 Nutrition Coaching</span>
-            <span>🏋️ Online & Offline</span>
+    <div class="ticker">
+        <div class="ticker-content">
+            <span>🔥 90-DAY BODY TRANSFORMATION</span>
+            <span>💪 ONE-ON-ONE PERSONAL TRAINING</span>
+            <span>📋 CUSTOMIZED NUTRITION PLANS</span>
+            <span>📱 WHATSAPP SUPPORT DAILY</span>
+            <span>🏠 ONLINE & OFFLINE TRAINING</span>
+            <span>🔥 90-DAY BODY TRANSFORMATION</span>
+            <span>💪 ONE-ON-ONE PERSONAL TRAINING</span>
+            <span>📋 CUSTOMIZED NUTRITION PLANS</span>
+            <span>📱 WHATSAPP SUPPORT DAILY</span>
+            <span>🏠 ONLINE & OFFLINE TRAINING</span>
         </div>
     </div>
 
-    <section class="programs" id="programs">
-        <div class="section-header reveal">
-            <div class="section-label">Training Programs</div>
-            <h2 class="section-title">Pick Your Path</h2>
-            <p class="section-sub">Every body is different. Every plan should be too.</p>
+    <section class="intro">
+        <div class="intro-right reveal">
+            <div class="tag">The Approach</div>
+            <h2>NO FADS.<br>NO BULLSHIT.<br>JUST WORK.</h2>
+            <p>I don't sell 6-pack abs in 30 days. I don't sell "secret" workouts. I've been doing this long enough to know what actually works: consistent training, a nutrition approach that fits your actual life (not the idealized version), and someone who holds you accountable when you want to skip Wednesday's session.</p>
+            <p>My programming is built around three principles: progressive overload (we get stronger over time, not just the first week), sustainable caloric deficit (you will not be hungry 24/7), and habit stacking (we build the routine before we push intensity). Most people who fail at fitness don't fail because they're lazy — they fail because their program was designed for someone with unlimited time and zero social life.</p>
+            <div class="quote">"I don't care about your abs. I care about whether you can keep showing up for yourself for the next 5 years. Everything else follows."</div>
         </div>
+        <div class="intro-left reveal">
+            <div class="avatar-box">
+                <i class="fas fa-user"></i>
+                <div class="badge">
+                    <span class="year">500+</span>
+                    <span>Lives Changed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs" id="programs">
+        <div class="section-label reveal">Programs</div>
+        <h2 class="section-title reveal">HOW I WORK</h2>
+        <p class="section-sub reveal">Three formats — we pick based on where you're starting</p>
         <div class="program-grid stagger">
             <div class="program-card">
-                <div class="icon-wrap"><i class="fas fa-fire"></i></div>
-                <h3>90-Day Transformation</h3>
-                <p>Complete body recomposition — fat loss and muscle building at the same time. 3 sessions per week, custom nutrition, daily check-ins.</p>
-                <div class="program-meta">
-                    <span class="price">₹15,000</span>
-                    <span class="duration">3 Months</span>
-                </div>
-                <i class="fas fa-arrow-right arrow"></i>
+                <div class="tag">For Beginners</div>
+                <h3>90-Day Foundation</h3>
+                <p>You're new to structured training or have been on and off for years without real results. We build the base — correct movement patterns, sustainable nutrition, and a routine that actually sticks.</p>
+                <ul>
+                    <li>3 sessions per week (in-person or online)</li>
+                    <li>Custom training program — updated every 4 weeks</li>
+                    <li>Macro-based nutrition plan (not calorie counting)</li>
+                    <li>Weekly progress tracking with body measurements</li>
+                    <li>WhatsApp support for questions</li>
+                </ul>
+                <div class="price">Starting ₹6,000/month</div>
             </div>
             <div class="program-card">
-                <div class="icon-wrap"><i class="fas fa-dumbbell"></i></div>
-                <h3>Strength Building</h3>
-                <p>Get measurably stronger. Progressive overload programming, proper form, and periodization. Build muscle that lasts.</p>
-                <div class="program-meta">
-                    <span class="price">₹12,000</span>
-                    <span class="duration">3 Months</span>
-                </div>
-                <i class="fas fa-arrow-right arrow"></i>
+                <div class="tag">For Intermediates</div>
+                <h3>180-Day Transformation</h3>
+                <p>You've been training for a while but hit a wall. Not losing fat despite being consistent. Not gaining strength despite lifting. We troubleshoot the gaps — programming, recovery, nutrition timing — and make precise adjustments.</p>
+                <ul>
+                    <li>4 sessions per week with me directly</li>
+                    <li>Bi-weekly body composition analysis</li>
+                    <li>Advanced nutrition periodization</li>
+                    <li>Supplement guidance (only what you actually need)</li>
+                    <li>24/7 WhatsApp support</li>
+                </ul>
+                <div class="price">Starting ₹9,000/month</div>
             </div>
             <div class="program-card">
-                <div class="icon-wrap"><i class="fas fa-weight"></i></div>
-                <h3>Fat Loss Special</h3>
-                <p>Evidence-based fat loss with sustainable calorie deficits. Keep the fat off forever, not just for the program duration.</p>
-                <div class="program-meta">
-                    <span class="price">₹10,000</span>
-                    <span class="duration">2 Months</span>
-                </div>
-                <i class="fas fa-arrow-right arrow"></i>
+                <div class="tag">For Serious Athletes</div>
+                <h3>Online Coaching</h3>
+                <p>For people who need a structured program and accountability but can't train in-person. You get everything in the 180-day program — just self-directed with weekly video form checks and a structured feedback loop.</p>
+                <ul>
+                    <li>Fully periodized 16-week training program</li>
+                    <li>Video form review (submit via WhatsApp)</li>
+                    <li>Nutrition plan with monthly adjustments</li>
+                    <li>Bi-weekly 30-min video calls</li>
+                    <li>Real-time program modifications</li>
+                </ul>
+                <div class="price">Starting ₹4,500/month</div>
             </div>
         </div>
     </section>
 
-    <section class="transformations" id="transformations">
-        <div class="section-header reveal">
-            <div class="section-label">Real Results</div>
-            <h2 class="section-title">Actual People, Actual Changes</h2>
-            <p class="section-sub">Not stock photos. Not cherry-picked cases. Real clients who did the work.</p>
-        </div>
-        <div class="trans-grid stagger">
-            <div class="trans-card">
-                <div class="trans-avatar"><i class="fas fa-user"></i></div>
-                <div class="trans-content">
-                    <h3>Amit Joshi</h3>
-                    <div class="result">Lost 22kg in 5 months</div>
-                    <p>"Thought I was too old and too busy for this. Vikas made it fit into my schedule. Best decision I ever made for my health."</p>
-                </div>
+    <section class="results" id="results">
+        <div class="section-label reveal" style="text-align:center;">Proof</div>
+        <h2 class="section-title reveal" style="text-align:center;">THE NUMBERS DON'T LIE</h2>
+        <div class="results-grid stagger">
+            <div class="result-card">
+                <div class="num">500+</div>
+                <div class="label">Clients Coached</div>
             </div>
-            <div class="trans-card">
-                <div class="trans-avatar"><i class="fas fa-user"></i></div>
-                <div class="trans-content">
-                    <h3>Sneha Kapoor</h3>
-                    <div class="result">Gained 8kg muscle, lost 12kg fat</div>
-                    <p>"Finally understand how to eat and train properly. Vikas teaches you why it works, not just what to do. Life changing."</p>
-                </div>
+            <div class="result-card">
+                <div class="num">89%</div>
+                <div class="label">Complete Full Program</div>
             </div>
-            <div class="trans-card">
-                <div class="trans-avatar"><i class="fas fa-user"></i></div>
-                <div class="trans-content">
-                    <h3>Rahul Desai</h3>
-                    <div class="result">Gained 15kg muscle in 8 months</div>
-                    <p>"Went from skinny kid to someone who actually likes what they see in the mirror. Vikas doesn't let you make excuses. Best coach in Mumbai."</p>
-                </div>
+            <div class="result-card">
+                <div class="num">18kg</div>
+                <div class="label">Avg Fat Loss (90-Day)</div>
             </div>
-            <div class="trans-card">
-                <div class="trans-avatar"><i class="fas fa-user"></i></div>
-                <div class="trans-content">
-                    <h3>Priya Sharma</h3>
-                    <div class="result">Lost 18kg in 4 months</div>
-                    <p>"Post-pregnancy weight that wouldn't budge. Vikas designed a plan that worked around my schedule as a new mom. Incredible results."</p>
-                </div>
+            <div class="result-card">
+                <div class="num">4.9</div>
+                <div class="label">Google Rating</div>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-img reveal-left">
-            <div class="main"><i class="fas fa-user"></i></div>
-            <div class="experience-badge">
-                <span class="num">8+</span>
-                <span>Years</span>
+    <section class="testimonials" id="testimonials">
+        <div class="section-label reveal">Reviews</div>
+        <h2 class="section-title reveal" style="color:#fff;">REAL CLIENTS.<br>REAL WORLDS.</h2>
+        <div class="testi-grid stagger">
+            <div class="testi-card">
+                <div class="top">
+                    <div class="quote"><i class="fas fa-quote-left"></i></div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p>"Message Vikas on WhatsApp and he'll get back to you within 2 hours — that's the level of accessibility he maintains. I started at 96kg,目標 was 78, got to 75 in 6 months. The nutrition plan was the real game-changer. I ate more food than I ever thought possible during a cut. No chicken breast and broccoli every day. Real food, real social life, real results. Lost 21kg total over 8 months."</p>
+                <div class="person">
+                    <div class="person-avatar"><i class="fas fa-user"></i></div>
+                    <div>
+                        <h4>Aditya Bhatia</h4>
+                        <span>Marketing Manager, Bandra · Lost 21kg in 8 months</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="about-content">
-            <div class="tag reveal">About Vikas</div>
-            <h2 class="reveal">I Was Once<br>Exactly Where You Are</h2>
-            <p class="reveal">8 years ago I was 120kg. Tried everyfad diet and supplement out there. Failed at all of them. Then I actually learned how the body works — nutrition science, exercise physiology, and habit formation. Now at 85kg with under 12% body fat, and I've taken 500+ clients through the same process.</p>
-            <p class="reveal">I'm ISSA certified, FMS level 1, and specialize in body recomposition, strength training, and habit-based transformation programs. I don't do quick fixes. I do lasting change.</p>
-            <div class="badges reveal">
-                <span>ISSA Certified</span>
-                <span>FMS Level 1</span>
-                <span>Nutrition Coach</span>
-                <span>Behavior Change Specialist</span>
+            <div class="testi-card">
+                <div class="top">
+                    <div class="quote"><i class="fas fa-quote-left"></i></div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p>"I was that person who bought a gym membership, went 3 times, and never went back. The pattern repeated for 4 years across 3 different gyms. What changed with Vikas is that he made the entry point stupidly small. First month was 2 sessions a week, 30 minutes each. I thought this was way too easy. Turns out that's the point — you build the habit before you build the intensity. I'm now 7 months in and going 5 days a week. Lost 14kg."</p>
+                <div class="person">
+                    <div class="person-avatar"><i class="fas fa-user"></i></div>
+                    <div>
+                        <h4>Sneha Kulkarni</h4>
+                        <span>CA, Andheri · Lost 14kg in 7 months</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="pricing" id="pricing">
-        <div class="section-header reveal">
-            <div class="section-label">Pricing</div>
-            <h2 class="section-title">Invest in Yourself</h2>
-            <p class="section-sub">Transparent pricing. No hidden fees. No lock-in contracts.</p>
-        </div>
+        <div class="section-label reveal">Investment</div>
+        <h2 class="section-title reveal">HOW MUCH DOES THIS COST?</h2>
+        <p class="section-sub reveal">Prices are for in-person training at Andheri West. Online coaching is 40% less. No hidden fees, no lock-in contracts.</p>
         <div class="pricing-grid stagger">
             <div class="price-card">
                 <h3>Starter</h3>
-                <div class="amount">₹5K</div>
-                <div class="per">per month</div>
+                <div class="duration">3 Months Minimum</div>
+                <div class="amount">₹6,000<small>/month</small></div>
+                <div class="note">₹18,000 upfront for 3 months</div>
                 <ul>
-                    <li><i class="fas fa-check"></i> 8 training sessions/month</li>
-                    <li><i class="fas fa-check"></i> Basic nutrition guide</li>
-                    <li><i class="fas fa-check"></i> Monthly progress tracking</li>
-                    <li><i class="fas fa-check"></i> Form correction</li>
+                    <li>3 sessions per week</li>
+                    <li>Custom training program</li>
+                    <li>Basic nutrition plan</li>
+                    <li>Weekly progress check-in</li>
+                    <li>WhatsApp support (response within 4 hours)</li>
                 </ul>
-                <a href="#contact">Get Started</a>
+                <a href="#" class="btn">Book Free Trial</a>
             </div>
             <div class="price-card featured">
                 <h3>Transform</h3>
-                <div class="amount">₹12K</div>
-                <div class="per">per month</div>
+                <div class="duration">6 Months Recommended</div>
+                <div class="amount">₹9,000<small>/month</small></div>
+                <div class="note">₹49,500 upfront for 6 months</div>
                 <ul>
-                    <li><i class="fas fa-check"></i> 12 training sessions/month</li>
-                    <li><i class="fas fa-check"></i> Custom meal plans</li>
-                    <li><i class="fas fa-check"></i> Weekly WhatsApp check-ins</li>
-                    <li><i class="fas fa-check"></i> 24/7 WhatsApp support</li>
-                    <li><i class="fas fa-check"></i> Supplement guidance</li>
+                    <li>4 sessions per week</li>
+                    <li>Advanced periodized training</li>
+                    <li>Full nutrition programming with macros</li>
+                    <li>Bi-weekly body composition analysis</li>
+                    <li>24/7 WhatsApp support</li>
+                    <li>Monthly video progress review</li>
                 </ul>
-                <a href="#contact">Get Started</a>
+                <a href="#" class="btn">Book Free Trial</a>
             </div>
             <div class="price-card">
-                <h3>Elite</h3>
-                <div class="amount">₹25K</div>
-                <div class="per">per month</div>
+                <h3>Online</h3>
+                <div class="duration">3 Months Minimum</div>
+                <div class="amount">₹4,500<small>/month</small></div>
+                <div class="note">₹12,000 upfront for 3 months</div>
                 <ul>
-                    <li><i class="fas fa-check"></i> Unlimited sessions</li>
-                    <li><i class="fas fa-check"></i> Full nutrition coaching</li>
-                    <li><i class="fas fa-check"></i> Daily check-ins</li>
-                    <li><i class="fas fa-check"></i> Sleep & recovery optimization</li>
-                    <li><i class="fas fa-check"></i> Priority scheduling</li>
+                    <li>16-week periodized program</li>
+                    <li>Weekly video form checks</li>
+                    <li>Custom nutrition plan</li>
+                    <li>Bi-weekly video calls</li>
+                    <li>WhatsApp support</li>
+                    <li>Works for anyone in India</li>
                 </ul>
-                <a href="#contact">Get Started</a>
+                <a href="#" class="btn">Start Online</a>
             </div>
         </div>
+        <p style="text-align:center;margin-top:2rem;font-size:0.82rem;color:rgba(255,255,255,0.3);" class="reveal">All plans include a free trial session before you commit. No questions asked if it's not right for you.</p>
     </section>
 
-    <section class="cta-section">
-        <div class="reveal">
-            <h2>Your Body Is Ready.<br><span>Are You?</span></h2>
-            <p>First consultation is FREE. No sales pitch. Let's talk about where you are and where you want to be.</p>
-            <a href="#contact" class="btn-yellow">Book Free Consultation</a>
-        </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-        <div class="contact-grid">
-            <div class="contact-info reveal">
-                <h2>Get In Touch</h2>
-                <p>Ready to start? Message me on WhatsApp and I'll get back within 2 hours. Serious inquiries only — if you're not committed to the work, I'm not the right trainer for you.</p>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <div><strong>WhatsApp</strong><span>+91 98765 43210</span></div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div><strong>Phone</strong><span>+91 98765 43210</span></div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div><strong>Email</strong><span>vikas@risefitness.in</span></div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div><strong>Studio</strong><span>Rise Fitness Studio, Bandra West, Mumbai 400050</span></div>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-instagram"></i>
-                    <div><strong>Instagram</strong><span>@vikas.rise.fitness</span></div>
-                </div>
-            </div>
-            <div class="contact-form reveal">
-                <form>
-                    <input type="text" placeholder="Your Name">
-                    <input type="tel" placeholder="WhatsApp Number">
-                    <input type="email" placeholder="Email Address">
-                    <select>
-                        <option>Main Goal</option>
-                        <option>Lose fat / weight loss</option>
-                        <option>Build muscle / strength</option>
-                        <option>Overall transformation</option>
-                        <option>Just get started with fitness</option>
-                    </select>
-                    <select>
-                        <option>Training Preference</option>
-                        <option>Studio (Bandra West)</option>
-                        <option>Online / Home workouts</option>
-                        <option>Client's gym</option>
-                    </select>
-                    <textarea placeholder="Tell me briefly about yourself and your fitness goals..."></textarea>
-                    <button type="submit">Request Free Consultation</button>
-                </form>
-            </div>
-        </div>
+    <section class="cta">
+        <h2>FIRST SESSION IS FREE</h2>
+        <p>Come train with me once before deciding anything. No commitment, no hard sell. If you don't feel it, wish me luck and move on.</p>
+        <button onclick="alert('WhatsApp: +91 98202 48157')">WhatsApp Me — +91 98202 48157</button>
     </section>
 
     <footer>
-        <p>© 2026 Rise Fitness — Vikas Rana. Mumbai, India.</p>
-        <div class="footer-social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">RISE<span>FITNESS</span></div>
+                <p>Personal training in Andheri West, Mumbai. Online coaching available across India. No gimmicks. No supplements to sell. Just structured training and honest coaching.</p>
+                <div class="social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <a href="#programs">90-Day Foundation</a>
+                <a href="#programs">180-Day Transform</a>
+                <a href="#programs">Online Coaching</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="#results">Results</a>
+                <a href="#testimonials">Client Reviews</a>
+                <a href="#pricing">Pricing</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="#">1st Floor, SV Road</a>
+                <a href="#">Andheri West, Mumbai 400058</a>
+                <a href="tel:+919820248157">+91 98202 48157</a>
+                <a href="#">rise.fitnes@gmail.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Rise Fitness, Andheri West, Mumbai. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal, .reveal-left, .stagger').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
         document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
+            a.addEventListener('click', e => { e.preventDefault();
                 const t = document.querySelector(a.getAttribute('href'));
                 if (t) t.scrollIntoView({ behavior: 'smooth' });
             });
